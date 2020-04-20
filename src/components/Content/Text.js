@@ -1,5 +1,6 @@
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { CancelIcon, CheckIcon } from '@material-ui/icons'
+import CancelIcon from '@material-ui/icons/Cancel'
+import CheckIcon from '@material-ui/icons/Check'
 import { Alert } from '@material-ui/lab'
 import React, { Fragment, useState } from 'react'
 
@@ -99,6 +100,14 @@ const Text = () => {
         <Alert severity={status}>
           <span>
             <strong>Ooops!</strong> Something has gone terribly wrong!
+          </span>
+        </Alert>
+      )}
+      {status === 'success' && (
+        <Alert severity={status}>
+          <span>
+            <strong>Well Done!</strong> This has now been stored in your
+            localStorage!
           </span>
         </Alert>
       )}
