@@ -1,3 +1,4 @@
+import Icon from '@material-ui/core/Icon'
 import CancelIcon from '@material-ui/icons/Cancel'
 import CheckIcon from '@material-ui/icons/Check'
 import { Alert } from '@material-ui/lab'
@@ -46,8 +47,23 @@ const Text = () => {
     }
   }
 
+  // text valid condition
   const isTextValid = () => {
     return inputtext === 'Thanks for all the fish'
+  }
+
+  // return icon related to the status
+  const loadIcon = (status) => {
+    switch (status) {
+      case 'loading':
+        return <Icon className='fas fa-spinner' />
+      case 'success':
+        return <CheckIcon style={{ color: '#7CFC00', fontSize: '2rem' }} />
+      case 'error':
+        return <CancelIcon color={'error'} style={{ fontSize: '2rem' }} />
+      default:
+        return null
+    }
   }
 
   return (
@@ -60,16 +76,9 @@ const Text = () => {
           onChange={(e) => handleOnChange(e)}
           onBlur={(e) => handleOnBlur(e)}
         />
-        {/* status based icons with style overrides */}
-        <div className='IconWrapper'>
-          {status === 'success' && (
-            <CheckIcon style={{ color: '#7CFC00', fontSize: '2rem' }} />
-          )}
-          {status === 'error' && (
-            <CancelIcon style={{ color: '#7CFC00', fontSize: '2rem' }} />
-          )}
-        </div>
+        <div className='IconWrapper'>{loadIcon(status)}</div>
       </form>
+
       {status === 'error' && (
         <Alert severity={status}>
           <span>
