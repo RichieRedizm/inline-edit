@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* quick ui tweaks so page looks clean and aligned */
+form {
+  display: flex;
+}
+/* reset some browser user agent input styles  */
+input {
+  background: transparent;
+  color: #71b8d0;
+  border: 0;
+  font-size: 2em;
+  text-align: center;
+  width: 100%;
+}
+input:focus {
+  outline: 0;
+}
+
+/* alert positioning bottom of page */
+.MuiAlert-root {
+  position: absolute;
+  bottom: 15vh;
+}
+
+/* icon positioning right of input */
+.IconWrapper .MuiSvgIcon-root {
+  align-items: flex-end;
+  margin-top: 14px;
+  margin-right: -32px;
+}
