@@ -61,8 +61,10 @@ input:focus {
 }
 
 /* icon positioning right of input */
+.IconWrapper {
+  margin-top: 14px;
+}
 .IconWrapper .MuiSvgIcon-root {
   align-items: flex-end;
-  margin-top: 14px;
   margin-right: -32px;
 }
