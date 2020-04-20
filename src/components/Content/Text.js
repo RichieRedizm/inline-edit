@@ -1,6 +1,5 @@
 import CircularProgress from '@material-ui/core/CircularProgress'
-import CancelIcon from '@material-ui/icons/Cancel'
-import CheckIcon from '@material-ui/icons/Check'
+import { CancelIcon, CheckIcon } from '@material-ui/icons'
 import { Alert } from '@material-ui/lab'
 import React, { Fragment, useState } from 'react'
 
