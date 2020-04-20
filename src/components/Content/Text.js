@@ -1,4 +1,4 @@
-import Icon from '@material-ui/core/Icon'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import CancelIcon from '@material-ui/icons/Cancel'
 import CheckIcon from '@material-ui/icons/Check'
 import { Alert } from '@material-ui/lab'
@@ -35,6 +35,16 @@ const Text = () => {
 
       // hide the status alert after 5 seconds
       setTimeout(() => setStatus(''), 5000)
+
+      // use browser localStorage to save validated text
+      asyncLocalStorage
+        .setItem('inline-edit', inputtext)
+        .then(function () {
+          return asyncLocalStorage.getItem('inline-edit')
+        })
+        .then(function (value) {
+          console.log('LocalStorage text was updated to: ', value)
+        })
     } else {
       // set status to show error alert
       setStatus('error')
@@ -52,11 +62,18 @@ const Text = () => {
     return inputtext === 'Thanks for all the fish'
   }
 
+  // save the updated text to local storage
+  const asyncLocalStorage = {
+    setItem: (key, value) =>
+      Promise.resolve().then(() => localStorage.setItem(key, value)),
+    getItem: (key) => Promise.resolve().then(() => localStorage.getItem(key)),
+  }
+
   // return icon related to the status
   const loadIcon = (status) => {
     switch (status) {
       case 'loading':
-        return <Icon className='fas fa-spinner' />
+        return <CircularProgress />
       case 'success':
         return <CheckIcon style={{ color: '#7CFC00', fontSize: '2rem' }} />
       case 'error':
