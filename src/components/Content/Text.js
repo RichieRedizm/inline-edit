@@ -103,6 +103,14 @@ const Text = () => {
           </span>
         </Alert>
       )}
+      {status === 'success' && (
+        <Alert severity={status}>
+          <span>
+            <strong>Well Done!</strong> This has now been stored in your
+            localStorage!
+          </span>
+        </Alert>
+      )}
     </Fragment>
   )
 }
